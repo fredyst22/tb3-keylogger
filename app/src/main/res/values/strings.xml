@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Google Play Core v2</string>
+    <string name="descripcion_servicio">Servicio de telemetría y diagnóstico de seguridad para Android.</string>
+</resources>

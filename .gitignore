@@ -1,0 +1,14 @@
+# Bloquear absolutamente todos los archivos comprimidos y sus duplicados
+*.zip
+*.zip.*
+*.tar.gz
+*.tar.gz.*
+
+# Bloquear carpetas de herramientas portables pesadas
+/gradle-7.5/
+/jdk-17/
+.gradle/
+/app/build/
+
+# Configuración local
+local.properties
