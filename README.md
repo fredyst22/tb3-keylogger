@@ -4,6 +4,30 @@ Esta guía contiene los comandos exactos y el flujo técnico corregido que funci
 
 Este archivo está listo para ser incluido en tu repositorio para que cualquiera (o tú mismo en otra máquina) pueda replicar el laboratorio sin tropezar con las licencias de Android o errores de caché.
 
+
+## 🛠️ Guía de Compilación desde la Consola (CLI)
+
+Si clonas este proyecto en un entorno limpio de Kali Linux, sigue estos pasos secuenciales dentro de la carpeta raíz del repositorio para compilar el APK sin configurar variables globales:
+
+### 1. Preparar el Entorno Local
+Descargamos e instalamos las versiones exactas y portables de Java y Gradle directamente dentro de la carpeta del proyecto:
+
+```bash
+# Asegúrate de estar en la raíz del repositorio clonado
+cd tb3-keylogger
+
+# Descargar e instalar Java 17 Portable de forma interna
+wget [https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.8.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.8.1_1.tar.gz](https://github.com/adoptium/temurin17-binaries/releases/download/jdk-17.0.8.1%2B1/OpenJDK17U-jdk_x64_linux_hotspot_17.0.8.1_1.tar.gz)
+tar -xzf OpenJDK17U-jdk_x64_linux_hotspot_17.0.8.1_1.tar.gz
+mv jdk-17.0.8.1+1 jdk-17
+
+# Descargar e instalar Gradle 7.5 Portable de forma interna
+wget [https://services.gradle.org/distributions/gradle-7.5-bin.zip](https://services.gradle.org/distributions/gradle-7.5-bin.zip)
+unzip gradle-7.5-bin.zip
+
+
+
+
 ---
 
 ## 📋 Requisitos Previos Generales
@@ -15,6 +39,7 @@ Como limpiamos el repositorio con `.gitignore` para no subir archivos pesados, a
 - El script `server.py` en la raíz.
 
 ---
+
 
 ## 🚀 Paso 1: Descarga de Herramientas de Google y Configuración del SDK
 
